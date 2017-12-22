@@ -1,0 +1,119 @@
+Node Commands
+_____________
+
+=>npm config rm proxy
+
+Install Angular Cli
+______________________
+
+=>npm install -g @angular/cli
+=>ng new ProJECT_NAME
+=>cd ProJECT_NAME
+=>npm install
+=>ng serve
+
+Configure Json Server
+_____________________
+
+=>npm install -g json-server
+=>json-server db.json --watch
+[
+create a file db.json
+Note: {
+	"employee":[
+		{
+			"id": "1",
+			"name": "Prasun Kumar Das",
+			"email": "9804541161"
+		},
+		{
+			"id": "2",
+			"name": "Pramit Kumar Das",
+			"email": "7804945597"
+		}
+	]
+}
+]
+
+Creating Mock Data using facker.js
+_______________________________
+=>npm init
+=>npm install --save faker
+
+create file employess.js and add below code
+var faker =require('faker');
+function generate_employee(){
+	var employees = [];
+	for (var i = 1; i<50; i++) {
+		var firstName = faker.name.firstName();
+		var lastName = faker.name.lastName();
+		
+		employees.push({
+			"firstName" : firstName,
+			"lastName" :lastName
+			
+		})
+		
+	};
+	return {"employees" : employees}
+}
+module.exports = generate_employee;
+
+run json-server --watch employess.js
+
+check  http://localhost:3000/employees
+
+Angular2 useful links:
+_____________________
+
+https://github.com/johnpapa/angular-tour-of-heroes/tree/master/src/app
+https://github.com/typicode/json-server
+http://blog.scottlogic.com/2015/12/24/creating-an-angular-2-build.html
+
+Set Up Bower
+=> bower init //create bower.json file
+# install package and add it to bower.json dependencies
+=>$ bower install <package> --save
+# install package and add it to bower.json devDependencies
+=> bower install <package> --save-dev
+
+#create .bowerrc file
+File -> Save As -> Write .bowerrc and choose "All Files" and save it
+
+
+
+
+++++++++++++++++++++++
+
+#Adding an existing project to GitHub using the command line
+
+Simple steps to add existing project to Github.
+
+1. Create a new repository on GitHub.
+In Terminal, change the current working directory to your local project.
+
+##2. Initialize the local directory as a Git repository.
+
+git init
+Add the files in your new local repository. This stages them for the first commit.
+
+git add .
+or:
+
+git add --all
+Commit the files that you've staged in your local repository.
+
+git commit -m 'First commit'
+Copy remote repository URL field from your GitHub repository, in the right sidebar, copy the remote repository URL.
+
+In Terminal, add the URL for the remote repository where your local repostory will be pushed.
+
+git remote add origin <remote repository URL>
+Sets the new remote:
+
+git remote -v
+Push the changes in your local repository to GitHub.
+
+git push origin master
+Pushes the changes in your local repository up to the remote repository you specified as the origin
+
